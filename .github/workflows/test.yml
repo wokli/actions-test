@@ -18,7 +18,7 @@ jobs:
       - name: Build
         run: make build
       - name: Artifacts
-        uses: actions/upload-artifacts@v2
+        uses: actions/upload-artifact@v2
         with:
           name: binary
           path: app

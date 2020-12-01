@@ -1,20 +1,21 @@
 package main
 
 import (
-    "fmt"
-    "net/http"
-    "log"
+	"fmt"
+	"log"
+	"net/http"
 )
 
-var Version = "dev"
+var version = "dev"
 
 func main() {
-    http.HandleFunc("/", HelloServer)
+	http.HandleFunc("/", HelloServer)
 
-    log.Println("Listening @:8080")
-    http.ListenAndServe(":8080", nil)
+	log.Printf("Version `%s` Listening @:8080", version)
+	http.ListenAndServe(":8080", nil)
 }
 
+// HelloServer main handler
 func HelloServer(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, Version)
+	fmt.Fprintf(w, version)
 }

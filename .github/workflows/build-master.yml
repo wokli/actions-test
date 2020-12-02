@@ -22,4 +22,6 @@ jobs:
         env:
           GORP_TOKEN: {{secrets.GORP_TOKEN}}
           GORP_URL: {{secrets.GORP_URL}}
-        run: env && curl -i -H "Authorization: $GORP_TOKEN" -F file=@$(make print-bin) $GORP_URL 
+        run: |
+          env
+          curl -i -H "Authorization: $GORP_TOKEN" -F file=@$(make print-bin) $GORP_URL 
